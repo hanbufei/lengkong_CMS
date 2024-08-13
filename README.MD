@@ -8,6 +8,7 @@
 3. 切割文件功能到单独的项目
 ### 1.模块化设计（工程目录）
 本项目共分4个子项目，其各自关系如下图：
+
 ![1.png](doc/img/1.png)
 * 后端项目：详见 server/README.MD，负责与数据库交互、处理业务逻辑，并提供api接口。
 * 前端项目：详见 ui_react/README.MD，负责渲染结构化文件、展示界面，并提供用户交互。
@@ -39,5 +40,34 @@ color：前景色
 bgColor：背景色
 
 value： 内容
-### 二、快速开始
+### 3.内容管理设计(数据库结构)
+对于用户来说，导航和快速查找是CMS系统的核心，因此设计3个导引方式：
+* 基于时间
+* 基于类别
+* 基于标签
+
+![2.png](doc/img/2.png)
+
+针对结构化的文件，若要实现管理，必须采用额外的数据库来完成，因此数据库主表设计如下：
+```
+	Id          uint        `json:"id"           ` // ID
+	Header      string      `json:"header"       ` // 大标题
+	ClassId     int         `json:"classId"      ` // 类别ID
+	LabelIdList string      `json:"labelIdList"  ` // 标签id列表
+	CreateAt    *gtime.Time `json:"createAt"     ` // 创建时间
+	Path        string      `json:"path"         ` // 路径
+	LastImg     string      `json:"lastImg"      ` // 最新图片
+	Detail      string      `json:"detail"       ` // 预览描述
+```  
+### 4.权限设计
+一开始就没有设计权限，以后估计也不会添加。但是万一有个意外，先记录一下简单的想法：
+
+1. 读权限：server单方向发送一个key给file_server，用以判断用户是否具有读权限。
+2. 写权限：admin_gui单方向发送一个key给file_server，用以判断管理员是否具有写权限。 
+   
+这是个面向全部用户的系统，未对用户进行分类。其实也简单分为了两类：普通用户和管理员。
+
+**说到这，需要重点注意，严格控制admin_gui程序，只应该安装在少数电脑上让少数人专用。**
+
+## 二、快速开始
 代码重构中，待全部完成后补充....... s山代码太多,不知道啥时候能完成
