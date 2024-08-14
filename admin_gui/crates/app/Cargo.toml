@@ -1,0 +1,22 @@
+[package]
+name = "冷空CMS管理端"
+version = "0.1.0"
+edition = "2021"
+description = "冷空CMS管理端"
+
+[dependencies]
+gpui.workspace = true
+ui.workspace = true
+
+# 打包信息
+[package.metadata.bundle]
+name = "lengkong_cms"
+identifier = "github.hanbufei.lengkong"
+icon = ["asset/ico.png", "asset/ico.png", "asset/ico.png"] # 3种大小的图标
+version = "0.1.0"
+copyright = "Copyright (c) Jane Doe 2016. All rights reserved."
+category = "Developer Tool"
+short_description = "冷空CMS管理端"
+long_description = """
+冷空CMS管理端.
+"""

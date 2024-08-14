@@ -1,0 +1,12 @@
+[package]
+name = "ui"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gpui.workspace = true
+
+#该crate作为lib库
+[lib]
+path = "src/lib.rs"
+doctest = false
