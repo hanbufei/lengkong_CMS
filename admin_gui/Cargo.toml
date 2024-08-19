@@ -4,5 +4,5 @@ members = ["crates/*"] # 该工作空间的所有crate
 default-members = ["crates/app"] # 默认情况下，只有此会被构建或运行
 
 [workspace.dependencies]
-gpui = { git = "https://github.com/zed-industries/zed" }
+iced = "0.12.1"
 ui = { path = "crates/ui" }

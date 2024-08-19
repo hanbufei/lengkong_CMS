@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-gpui.workspace = true
+iced.workspace = true
 
 #该crate作为lib库
 [lib]

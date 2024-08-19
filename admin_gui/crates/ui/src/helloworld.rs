@@ -1,23 +1,21 @@
-use gpui::*;
+use iced::Sandbox;
 
-pub struct HelloWorld {
-    pub text: SharedString,
-}
+pub struct Helloworld;
 
-impl Render for HelloWorld {
-    fn render(&mut self, _cx: &mut ViewContext<Self>) -> impl IntoElement {
-        div()
-            .flex()
-            .bg(rgb(0x2e7d32))
-            .size_full()
-            // .size(Length::Definite(Pixels(300.0).into()))
-            .justify_center()
-            .items_center()
-            .shadow_lg()
-            .border_1()
-            .border_color(rgb(0x0000ff))
-            .text_xl()
-            .text_color(rgb(0xffffff))
-            .child(format!("{}", &self.text))
+impl Sandbox for Helloworld {
+    type Message = ();
+
+    fn new() -> Self {
+        Self
+    }
+
+    fn title(&self) -> String {
+        String::from("My App")
+    }
+
+    fn update(&mut self, _message: Self::Message) {}
+
+    fn view(&self) -> iced::Element<Self::Message> {
+        "Hello World!".into()
     }
 }
