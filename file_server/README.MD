@@ -74,6 +74,11 @@ type DeleteReq struct {
  ~ curl http://127.0.0.1:9999/article/delete\?path\=2024-08-26_d3pqdgcx94owvlghkl  -H key:d282a7vrhcq0kvzp39
 {"code":200,"message":"","data":"删除成功"}
 ```
+## 3.访问文件(自带的静态文件服务)
+文件默认保存在file路由下，直接访问路径即可：
+```
+http://127.0.0.1:9999/file/2024-08-26_d3pqdgcx94owvlghkl/content.json
+```
 
 # 三、文件服务设计
 一个目录即代表一篇文章。
